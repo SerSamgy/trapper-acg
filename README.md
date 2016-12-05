@@ -1,2 +1,2 @@
-# trapper-acg
-Text-based adventure card game
+# Project Trapper
+Text-based adventure card game.
