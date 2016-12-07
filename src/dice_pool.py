@@ -19,10 +19,7 @@ class DicePool(list):
         super(DicePool, self).append(p_object)
 
     def extend(self, iterable):
-        try:
-            self.__check_sequence_objects_type(iterable)
-        except TypeError:
-            raise
+        self.__check_sequence_objects_type(iterable)
 
         super(DicePool, self).extend(iterable)
 
