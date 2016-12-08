@@ -1,2 +1,4 @@
+-r app.txt
+
 pytest
 pytest-cov
