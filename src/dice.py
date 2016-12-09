@@ -1,5 +1,5 @@
 def __retrieve_faces(amount):
-    return tuple(range(1, amount + 1))
+    return list(range(1, amount + 1))
 
 
 d4 = __retrieve_faces(4)

@@ -42,21 +42,6 @@ def test_dice_pool_insert_only_ability_objects(pool, melee_ability):
 
 
 @pytest.fixture
-def ability_class():
-    return dice_pool.Ability
-
-
-@pytest.fixture
-def melee_ability():
-    melee = dice_pool.Ability(dice.d10, 3)
+def melee_ability(ability_class):
+    melee = ability_class(dice.d10, 3)
     return melee
-
-
-@pytest.fixture
-def pool_class():
-    return dice_pool.DicePool
-
-
-@pytest.fixture
-def pool(pool_class):
-    return pool_class()
