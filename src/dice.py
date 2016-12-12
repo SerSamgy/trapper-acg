@@ -1,9 +1,7 @@
-def __retrieve_faces(amount):
-    return list(range(1, amount + 1))
+import lea
 
-
-d4 = __retrieve_faces(4)
-d6 = __retrieve_faces(6)
-d8 = __retrieve_faces(8)
-d10 = __retrieve_faces(10)
-d12 = __retrieve_faces(12)
+d4 = lea.die(4)
+d6 = lea.D6
+d8 = lea.die(8)
+d10 = lea.die(10)
+d12 = lea.die(12)
