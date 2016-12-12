@@ -9,12 +9,9 @@ def test_ability_class_has_proper_fields(ability_class):
     assert hasattr(ability_class, 'modifier')
 
 
-def test_dice_pool_can_contain_only_ability_objects(pool_class, melee_ability):
-    with pytest.raises(dice_pool.NoRequiredFields):
-        pool_class([1])
-
-    new_pool = pool_class([melee_ability])
-    assert melee_ability == new_pool.pop()
+def test_dice_pool_is_singleton(pool_class, pool):
+    new_pool = pool_class()
+    assert new_pool == pool
 
 
 def test_dice_pool_appends_only_ability_objects(pool, melee_ability):
