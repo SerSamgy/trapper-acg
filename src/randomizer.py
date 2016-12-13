@@ -1,35 +1,32 @@
-import random
+import dice_pool
+
+Pool = dice_pool.DicePool()
 
 
-def add_ability_to_pool(pool, ability):
-    pool.append(ability)
+def add_ability_to_pool(ability):
+    Pool.append(ability)
 
 
-def remove_ability_from_pool(pool, ability):
-    pool.remove(ability)
+def remove_ability_from_pool(ability):
+    Pool.remove(ability)
 
 
-def empty_pool(pool):
-    pool.clear()
+def empty_pool():
+    Pool.clear()
 
 
-def shuffle_ability_dice(dice):
-    # lambda function guarantees we get new dice elements order
-    random.shuffle(dice, lambda: random.uniform(0.0, 0.7))
-
-
-def shuffle_pool_dices(pool):
-    for ability in pool:
-        shuffle_ability_dice(ability.dice)
+def pop_value_from_pool():
+    return Pool.pop()
 
 
 def get_random_ability_value(ability):
-    return random.choice(ability.dice) + ability.modifier
+    return ability.dice.randomVal() + ability.modifier
 
 
-def get_sum_of_random_values_from_pool(pool):
+def get_sum_of_random_values_from_pool():
     result = 0
-    for ability in pool:
+    while len(Pool) > 0:
+        ability = pop_value_from_pool()
         result += get_random_ability_value(ability)
 
     return result
