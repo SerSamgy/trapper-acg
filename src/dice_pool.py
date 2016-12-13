@@ -1,5 +1,7 @@
 import collections
 
+import singleton
+
 Ability = collections.namedtuple('Ability', 'dice, modifier')
 
 
@@ -7,17 +9,7 @@ class NoRequiredFields(Exception):
     pass
 
 
-class Singleton(type):
-    # TODO: move this to other file
-    __instances = {}
-
-    def __call__(cls, *args, **kwargs):
-        if cls not in cls.__instances:
-            cls.__instances[cls] = super().__call__(*args, **kwargs)
-        return cls.__instances[cls]
-
-
-class DicePool(list, metaclass=Singleton):
+class DicePool(list, metaclass=singleton.Singleton):
 
     def __init__(self, seq=None):
         if seq:
