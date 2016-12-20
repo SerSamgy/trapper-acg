@@ -1,6 +1,6 @@
 import pytest
 
-import dice_pool
+import randomizer.dice_pool as dice_pool
 
 
 @pytest.fixture
